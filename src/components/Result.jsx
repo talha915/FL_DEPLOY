@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import Brandings from './Branding/Brandings';
+import Results from './Results/Results';
 import Header from './Header';
 
 
-class Branding extends Component {
+class Result extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,11 +17,11 @@ class Branding extends Component {
             <div id="page">
                 <div className="dashboard-page">
                     <Header routeProps={this.state.routes}/>
-                    <Brandings />
+                    <Results />
                 </div>
             </div>
         )
     }
 }
 
-export default Branding;
+export default Result;

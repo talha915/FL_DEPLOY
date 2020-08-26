@@ -1,36 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+
+// Components
 import Index from '../Index';
 import Question from '../Question';
+import Video from '../Video';
 import Outro from '../Outro';
 import Branding from '../Branding';
-import General from '../General';
-import Results from '../Results';
+import Setting from '../Setting';
+import Result from '../Result';
 
-function Router() {
-  return (
-    <div >
-      <Switch>
-        <Route exact path="/" component={Index} />     
-        <Route path="/question/vote1" component={Question} exact/> 
-        <Route path="/question/vote2" component={Question} exact/>
-        <Route path="/question/vote3" component={Question} exact/>
-        <Route path="/question/addvote" component={Question} exact/>
-        <Route path="/outro/video" component={Outro} exact/>
-        <Route path="/outro/gif" component={Outro} exact/>
-        <Route path="/outro/text" component={Outro} exact/>
-        <Route path="/branding/colors" component={Branding} exact/>
-        <Route path="/branding/logo" component={Branding} exact/>
-        <Route path="/branding/logosounds" component={Branding} exact/>
-        <Route path="/general/export" component={General} exact/>
-        <Route path="/general/settings" component={General} exact/>
-        <Route path="/results/vote1" component={Results} exact/>
-        <Route path="/results/vote2" component={Results} exact/>
-        <Route path="/results/vote3" component={Results} exact/>
-        <Route path="/results/analytics" component={Results} exact/>
-      </Switch>
-    </div>
-  );
+class Router extends Component {
+    render() {
+        return(
+            <div>
+                <Switch>
+                    <Route component={Index} path="/" exact/>
+                    <Route component={Video} path="/video" exact/>
+                    <Route component={Question} path="/question/vote1" exact/>
+                    <Route component={Question} path="/question/vote2" exact/>
+                    <Route component={Question} path="/question/vote3" exact/>
+                    <Route component={Question} path="/question/addvote" exact/>
+                    <Route component={Outro} path="/outro/video" exact/>
+                    <Route component={Outro} path="/outro/gif" exact/>
+                    <Route component={Outro} path="/outro/text" exact/>
+                    <Route component={Branding} path="/branding/colors" exact/>
+                    <Route component={Branding} path="/branding/logo" exact/>
+                    <Route component={Branding} path="/branding/logosounds" exact/>
+                    <Route component={Setting} path="/general/settings" exact/>
+                    <Route component={Setting} path="/general/export" exact/>
+                    <Route component={Result} path="/results/vote1" exact/>
+                    <Route component={Result} path="/results/vote2" exact/>
+                    <Route component={Result} path="/results/vote3" exact/>
+                    <Route component={Result} path="/results/analytics" exact/>
+                </Switch>
+            </div>
+        )
+    }
 }
 
 export default Router;

@@ -1,27 +1,24 @@
 import React, { Component } from 'react';
 
-import Brandings from './Branding/Brandings';
+import Videos from './Video/Videos';
 import Header from './Header';
-
-
-class Branding extends Component {
+class Video extends Component {
     constructor(props) {
         super(props);
         this.state = {
             routes: 0
         }
     }
-    
     render() {
         return (
             <div id="page">
                 <div className="dashboard-page">
                     <Header routeProps={this.state.routes}/>
-                    <Brandings />
+                    <Videos />
                 </div>
             </div>
         )
     }
 }
 
-export default Branding;
+export default Video;

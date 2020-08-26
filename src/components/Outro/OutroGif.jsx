@@ -24,7 +24,7 @@ class OutroGif extends Component {
         if(this.state.outroGif) {
             let gifList = this.state.outroGif.map((data, index)=> {
                 return(
-                    <li><a href="#"><img src={data.img} width="200" height="161" alt="image description" /></a></li>
+                    <li key={index}><a href="#"><img src={data.img} width="200" height="161" alt="image description" /></a></li>
                 )
             })
             return gifList;
@@ -53,4 +53,5 @@ class OutroGif extends Component {
         )
     }
 }
+
 export default OutroGif;

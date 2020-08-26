@@ -3,16 +3,19 @@
         {
             "name": "video",
             "activeStatus": true,
+            "icon": "icon icon-video",
             "redirect": "/outro/video"
         },
         {
             "name": "GIF",
             "activeStatus": false,
+            "icon": "icon icon-gif",
             "redirect": "/outro/gif"
         },
         {
             "name": "Text",
             "activeStatus": false,
+            "icon":"icon icon-open-text",
             "redirect": "/outro/text"
         }
     ],

@@ -1,35 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-/* Components */
-import Header from './Header';
-import Sidebar from './Sidebar';
 import Outros from './Outro/Outros';
-import Footer from './Footer';
+import Header from './Header';
 
-/* Styles */
-import '../styles/main.css';
 
-function Outro() {
-    return(
-        <div id="page">
-            <div className="dashboard-page">
-                <Header />
-                <main>
-                    <div className="dashboard-wrap">
-                        <div className="container-fluid">
-                            <div className="main-tabs-wrap">
-                                <Sidebar />
-                                <div className="main-tabs-content tab-content">
-                                    <Outros />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-                <Footer />
+class Outro extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            routes: 0
+        }
+    }
+    
+    render() {
+        return (
+            <div id="page">
+                <div className="dashboard-page">
+                    <Header routeProps={this.state.routes}/>
+                    <Outros />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default Outro;

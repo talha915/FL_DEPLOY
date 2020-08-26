@@ -1,0 +1,34 @@
+{
+    "tabs": [
+        {
+            "name": "Video",
+            "route": "/video",
+            "icon": "icon icon-video"
+        },
+        {
+            "name": "Question",
+            "route": "/question/vote1",
+            "icon": "icon icon-communications"
+        },
+        {
+            "name": "Outro",
+            "route": "/outro/video",
+            "icon": "icon icon-chat"
+        },
+        {
+            "name": "Branding",
+            "route": "/branding/logosounds",
+            "icon": "icon icon-branding"
+        },
+        {
+            "name": "General Setting",
+            "route": "/general/settings",
+            "icon": "icon icon-interface"
+        },
+        {
+            "name": "Results",
+            "route": "/results/vote1",
+            "icon": "icon icon-results"
+        }
+    ]
+}

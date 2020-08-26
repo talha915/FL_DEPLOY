@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-// Scrollbar
-import { Scrollbars } from 'react-custom-scrollbars';
-
 // Data
 import BrandingIntro from '../../Data/Branding.json';
+
+// Scrollbar
+import { Scrollbars } from 'react-custom-scrollbars';
 
 class BrandingSound extends Component {
 
@@ -19,14 +19,14 @@ class BrandingSound extends Component {
         this.setBrandingSound();
     }
 
-    setBrandingSound=()=> {
-        this.setState({brandingIntro: BrandingIntro.brandingSound});
+    setBrandingSound = () => {
+        this.setState({ brandingIntro: BrandingIntro.brandingSound });
     }
 
-    getBrandSoundList=()=> {
-        if(this.state.brandingIntro) {
-            let list = this.state.brandingIntro.map((data, index)=> {
-                return(
+    getBrandSoundList = () => {
+        if (this.state.brandingIntro) {
+            let list = this.state.brandingIntro.map((data, index) => {
+                return (
                     <li>
                         <div className="sound-leftsize">
                             <div className="icon-wrap">
@@ -46,6 +46,7 @@ class BrandingSound extends Component {
             return list;
         }
     }
+
 
     render() {
         return (

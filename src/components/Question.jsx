@@ -1,35 +1,58 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-/* Components */
-import Header from './Header';
-import Sidebar from './Sidebar';
-import Footer from './Footer';
-
-/* Styles */
-import '../styles/main.css';
 import Questions from './Question/Questions';
+import Header from './Header';
 
-function Question() {
-    return (
-        <div id="page">
-            <div className="dashboard-page">
-                <Header />
-                <main>
-                    <div className="dashboard-wrap">
-                        <div className="container-fluid">
-                            <div className="main-tabs-wrap">
-                                <Sidebar />
-                                <div className="main-tabs-content tab-content">
-                                    <Questions />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-                <Footer />
+import questionData from '../Data/Questions.json';
+
+class Question extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            routes: 0
+        }
+    }
+
+
+    componentDidMount() {
+        this.setQuestions();
+    }
+
+    setQuestions = () => {
+        this.setState({ questionList: questionData })
+    }
+
+    getQuestions = () => {
+        if (this.state.questionList) {
+            let listData = this.state.questionList.questions.map((data, index) => {
+                return (
+                    <li className="nav-item" key={index}>
+                        <a className={data.activeStatus ? "nav-link active" : "nav-link"} data-toggle="pill" href="#" role="tab" aria-selected="true" onClick={() => this.clickQuest(data, index)}>
+                            <span className="align">
+                                <i className="icon icon-vote d-lg-none"></i>
+                                <span className="text d-block">
+                                    {data.name}
+                                </span>
+                            </span>
+                        </a>
+                    </li>
+                )
+            })
+            return listData;
+        }
+    }
+
+
+    render() {
+        return (
+            <div id="page">
+                <div className="dashboard-page">
+                    <Header routeProps={this.state.routes}/>
+                    <Questions />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default Question;

@@ -24,18 +24,18 @@ class Generals extends Component {
         this.setGeneralList();
     }
 
-    setGeneralList=()=> {
-        this.setState({generalList: GeneralData.generalList});
+    setGeneralList = () => {
+        this.setState({ generalList: GeneralData.generalList });
     }
 
-    getGeneralList=()=> {
-        if(this.state.generalList) {
+    getGeneralList = () => {
+        if (this.state.generalList) {
             let generals = this.state.generalList.map((data, index) => {
-                return(
+                return (
                     <li className="nav-item" key={index}>
                         <a className={data.activeStatus ? "nav-link active" : "nav-link"} data-toggle="pill" href="#setting" role="tab" aria-selected="true" onClick={()=>this.generalClick(data, index)}>
                             <span className="align">
-                                <i className="icon icon-interface d-lg-none"></i>
+                                <i className={data.icon}></i>
                                 <span className="text d-block">{data.name}</span>
                             </span>
                         </a>
@@ -46,11 +46,11 @@ class Generals extends Component {
         }
     }
 
-    generalClick=(data, index)=> {
+    generalClick = (data, index) => {
         this.props.history.push(data.redirect);
         let activeStates = [...this.state.generalList];
-        for(let i=0; i<activeStates.length; i++) {
-            if(activeStates[i].activeStatus === true) {
+        for (let i = 0; i < activeStates.length; i++) {
+            if (activeStates[i].activeStatus === true) {
                 activeStates[i].activeStatus = false;
             }
         }
@@ -60,8 +60,8 @@ class Generals extends Component {
     render() {
         return (
             <div className="tab-pane fade show active" id="g-setting">
-                <div className="d-flex flex-wrap flex-lg-nowrap w-100">
-                    <div className="inner-tab-container order-2 order-lg-1">
+                <div className="d-flex flex-wrap w-100">
+                    <div className="inner-tab-container order-2">
                         <div className="inner-tabs-wrap">
                             <ul className="nav inner-tabs nav-pills" role="tablist">
                                 {this.getGeneralList()}
@@ -72,18 +72,7 @@ class Generals extends Component {
                                     <Settings />
                                     :
                                     <Exports />
-                                }               
-                            </div>
-                        </div>
-                    </div>
-                    <div className="video-box order-1 order-lg-2 text-center">
-                        <div className="video-boxe-holder">
-                            <a href="#" className="btn-paly"><img src="/images/play.png" width="76" height="76" alt="play button" /></a>
-                            <div className="d-none d-lg-block">
-                                <img src="/images/frame-video-desktop.png" className="img-fluid" width="364" height="718" alt="image description" />
-                            </div>
-                            <div className="d-lg-none">
-                                <img src="/images/frame-video-mobile.png" className="img-fluid" width="394" height="218" alt="image description" />
+                                }
                             </div>
                         </div>
                     </div>
@@ -92,4 +81,5 @@ class Generals extends Component {
         )
     }
 }
+
 export default withRouter(Generals);

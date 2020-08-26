@@ -1,20 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
+import '../../src/styles/main.css';
 
-/* Styles */
-import '../styles/main.css';
+/* Router */
+import {withRouter} from 'react-router-dom';
 
-function Header() {
-    return (
-        <header id="header">
-            <div className="container-fluid">
-                <div className="d-flex align-items-center justify-content-between">
-                    <div className="logo order-2 order-md-1"><a href="#"><span className="logo-text">Project Name</span></a></div>
-                    <a className="btn-back d-lg-none" href="#"><i className="icon-arrow-back"></i></a>
-                    <a href="#" className="btn d-none d-lg-block btn-primary order-1 order-md-2"><i className="icon-arow-long-left"></i><span className="btn-text d-none d-md-inline-block">back to workspace</span></a>
-                </div>
-            </div>
-        </header>
-    )
+class Header extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			router: ''
+		}
+	}
+
+	componentWillReceiveProps() {
+		let routes = this.props.routeProps;
+		this.setState({router: routes});
+	}
+
+	backRoute=()=> {
+		this.props.history.push('/');
+	}
+
+    render() {
+		
+        return(
+            <header id="header">
+				<div className="container-fluid">
+					<div className="d-flex align-items-center justify-content-between">
+						<div className="logo order-2 order-md-1"><a href="#"><span className="logo-text">Project Name</span></a></div>
+						{this.state.router == 0 ? <a className="btn-back" href="#" onClick={()=>this.backRoute()}><i className="icon-arrow-back"></i></a>: ''}
+					</div>
+				</div>
+			</header>
+        )
+    }
 }
 
-export default Header;
+export default withRouter(Header);
